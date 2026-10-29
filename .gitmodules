@@ -1,0 +1,3 @@
+[submodule "upstream/MW-M31"]
+	path = upstream/MW-M31
+	url = https://github.com/TillSawala/MW-M31.git

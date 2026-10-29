@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "andromeda-research"
+version = "0.1.0"
+description = "Reproducible Milky Way-Andromeda encounter forecasts for the Deep Space Portal"
+requires-python = ">=3.11"
+license = "GPL-3.0-or-later"
+dependencies = ["numpy", "scipy", "astropy", "colossus", "matplotlib"]
+
+[tool.setuptools]
+packages = ["andromeda"]

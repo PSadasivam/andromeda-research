@@ -19,9 +19,13 @@ SEED_ORDER = (
 def sample_observables(params, n, clip_sigma=2.0):
     draws = {}
     for seed, (galaxy, key) in enumerate(SEED_ORDER):
-        mean, sigma = params[galaxy][key]
+        spec = params[galaxy][key]
         np.random.seed(seed)
-        draws[galaxy, key] = truncnorm(-clip_sigma, clip_sigma, loc=mean, scale=sigma).rvs(n)
+        if spec[0] == "uniform":
+            draws[galaxy, key] = np.random.uniform(spec[1], spec[2], n)
+        else:
+            mean, sigma = spec
+            draws[galaxy, key] = truncnorm(-clip_sigma, clip_sigma, loc=mean, scale=sigma).rvs(n)
     return draws
 
 

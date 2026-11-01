@@ -8,6 +8,7 @@ import argparse
 import json
 from pathlib import Path
 
+from andromeda.configs import CONFIGS
 from andromeda.ensemble import run_ensemble, save, summarize
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--config", choices=["sawala2025", "wu2026"], required=True)
+    parser.add_argument("--config", choices=sorted(CONFIGS), required=True)
     parser.add_argument("--galaxies", default="MW,M31,LMC,M33")
     parser.add_argument("--n", type=int, default=10000)
     parser.add_argument("--workers", type=int, default=1)

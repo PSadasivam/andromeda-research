@@ -1,4 +1,4 @@
-"""Observational priors as (mean, sigma) pairs.
+"""Observational priors as (mean, sigma) pairs, or ("uniform", low, high) for scans.
 
 Units: M200 in 1e10 Msun, distance modulus in mag, proper motions in uas/yr,
 heliocentric line-of-sight velocity in km/s.
@@ -36,10 +36,20 @@ WU2026 = deepcopy(SAWALA2025)
 WU2026["M31"].update(c=(15.0, 2.5), pmra=(45.9, 8.1), pmdec=(-20.5, 6.6))
 WU2026["M33"].update(pmra=(30.6, 5.7), pmdec=(19.0, 5.7))
 
-CONFIGS = {"sawala2025": SAWALA2025, "wu2026": WU2026}
+# Wu et al. (2026) Sec. III.2: M31 proper-motion prior replaced by a uniform box of +/-5 sigma.
+SCAN_HALF_WIDTH_SIGMA = 5.0
+WU2026_M31PM_SCAN = deepcopy(WU2026)
+for _key in ("pmra", "pmdec"):
+    _mean, _sigma = WU2026["M31"][_key]
+    WU2026_M31PM_SCAN["M31"][_key] = ("uniform", _mean - SCAN_HALF_WIDTH_SIGMA * _sigma,
+                                     _mean + SCAN_HALF_WIDTH_SIGMA * _sigma)
+
+CONFIGS = {"sawala2025": SAWALA2025, "wu2026": WU2026, "wu2026_m31pm_scan": WU2026_M31PM_SCAN}
 
 SOURCES = {
     "sawala2025": "Sawala et al. (2025), Nature Astronomy 9, 1206; upstream notebook "
                   "commit e04820e, DefineParameters('fiducial')",
     "wu2026": "Wu et al. (2026), arXiv:2603.22863v1, Table 1",
+    "wu2026_m31pm_scan": "Wu et al. (2026), arXiv:2603.22863v1, Table 1 with the M31 proper-motion "
+                         "prior replaced by a uniform +/-5 sigma box (their Sec. III.2)",
 }

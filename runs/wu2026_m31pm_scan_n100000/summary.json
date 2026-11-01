@@ -1,0 +1,198 @@
+{
+  "metadata": {
+    "config": "wu2026_m31pm_scan",
+    "config_source": "Wu et al. (2026), arXiv:2603.22863v1, Table 1 with the M31 proper-motion prior replaced by a uniform +/-5 sigma box (their Sec. III.2)",
+    "parameters": {
+      "MW": {
+        "m": [
+          100.0,
+          20.0
+        ],
+        "c": [
+          10.0,
+          2.0
+        ]
+      },
+      "M31": {
+        "m": [
+          130.0,
+          40.0
+        ],
+        "c": [
+          15.0,
+          2.5
+        ],
+        "dmod": [
+          24.407,
+          0.032
+        ],
+        "pmra": [
+          "uniform",
+          5.399999999999999,
+          86.4
+        ],
+        "pmdec": [
+          "uniform",
+          -53.5,
+          12.5
+        ],
+        "vr": [
+          -301.0,
+          1.0
+        ]
+      },
+      "M33": {
+        "m": [
+          30.0,
+          10.0
+        ],
+        "c": [
+          10.0,
+          2.0
+        ],
+        "dmod": [
+          24.67,
+          0.07
+        ],
+        "pmra": [
+          30.6,
+          5.7
+        ],
+        "pmdec": [
+          19.0,
+          5.7
+        ],
+        "vr": [
+          -179.2,
+          1.8
+        ]
+      },
+      "LMC": {
+        "m": [
+          15.0,
+          5.0
+        ],
+        "c": [
+          10.0,
+          2.0
+        ],
+        "dmod": [
+          18.477,
+          0.026
+        ],
+        "pmra": [
+          1910.0,
+          20.0
+        ],
+        "pmdec": [
+          229.0,
+          47.0
+        ],
+        "vr": [
+          262.2,
+          3.4
+        ]
+      }
+    },
+    "galaxies": [
+      "MW",
+      "M31",
+      "LMC",
+      "M33"
+    ],
+    "n_samples": 100000,
+    "clip_sigma": 2.0,
+    "upstream_commit": "e04820ec366c57a9f03ac3af14bcf62b5467eb2e",
+    "workers": 14,
+    "runtime_seconds": 591.4,
+    "python": "3.13.14",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "astropy": "8.0.2",
+      "colossus": "1.4.0"
+    },
+    "time_unit_gyr": 0.977792221
+  },
+  "summary": {
+    "n_samples": 100000,
+    "horizon_code_units": 10.0,
+    "horizon_gyr": 9.77792221,
+    "pairs": {
+      "MW-M31": {
+        "merged": 28249,
+        "fraction": 0.28249,
+        "fraction_95ci": [
+          0.27970801463507855,
+          0.2852886958374209
+        ],
+        "merge_time_code_units": {
+          "median": 7.503,
+          "minus": 1.3090000000000002,
+          "plus": 1.4760000000000009,
+          "n": 28249
+        },
+        "merge_time_gyr": {
+          "median": 7.336375034163,
+          "minus": 1.2799300172889998,
+          "plus": 1.4432213181960005,
+          "n": 28249
+        }
+      },
+      "LMC-MW": {
+        "merged": 99911,
+        "fraction": 0.99911,
+        "fraction_95ci": [
+          0.9989050190644239,
+          0.9992766361977287
+        ],
+        "merge_time_code_units": {
+          "median": 1.2750000000000001,
+          "minus": 0.3630000000000001,
+          "plus": 0.609,
+          "n": 99911
+        },
+        "merge_time_gyr": {
+          "median": 1.2466850817750001,
+          "minus": 0.3549385762230002,
+          "plus": 0.595475462589,
+          "n": 99911
+        }
+      },
+      "M33-M31": {
+        "merged": 35096,
+        "fraction": 0.35096,
+        "fraction_95ci": [
+          0.3480076778287264,
+          0.3539237723520529
+        ],
+        "merge_time_code_units": {
+          "median": 5.566,
+          "minus": 1.8419999999999996,
+          "plus": 2.2830000000000004,
+          "n": 35096
+        },
+        "merge_time_gyr": {
+          "median": 5.442391502085999,
+          "minus": 1.8010932710819993,
+          "plus": 2.232299640543001,
+          "n": 35096
+        }
+      }
+    },
+    "first_pericentre_time_code_units": {
+      "median": 5.939,
+      "minus": 1.5381600000000004,
+      "plus": 1.3940000000000001,
+      "n": 95050
+    },
+    "first_pericentre_distance_kpc": {
+      "median": 322.368114302251,
+      "minus": 286.2220323093564,
+      "plus": 290.69643850223326,
+      "n": 95050
+    },
+    "m33_absorbed_before_mw_m31": 0.25124,
+    "m33_absorbed_after_mw_m31": 0.00928
+  }
+}

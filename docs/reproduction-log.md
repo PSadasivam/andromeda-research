@@ -76,4 +76,4 @@ These are properties of the upstream model, recorded for the Topic 9 stress test
 
 ## Next
 
-Stage 2: fix the "materially changed" threshold, compute the merger-probability map across the M31 proper-motion plane in the frozen Wu (2026) configuration, and publish the pre-DR4 forecast by 1 December 2026.
+Stage 2 is in [pre-dr4-forecast.md](pre-dr4-forecast.md): the materiality threshold, the decision rule, and the M31 proper-motion map in the frozen Wu (2026) configuration.

@@ -43,7 +43,29 @@ Why 5 percentage points: it is about 17 times the Monte Carlo standard error of 
 
 ## 4. Pre-Stated Regions
 
-Results pending: computed by `scripts/forecast_map.py` from the scan in Section 5 and recorded in the tagged commit.
+Computed by `scripts/forecast_map.py` from the 100,000-sample scan (`runs/wu2026_m31pm_scan_n100000/`, 591 s on 14 workers); full numbers in its `forecast.json`. Figure: `andromeda_forecast_map.png` in the portal repository.
+
+**Check passed.** Reweighting the scan to today's measurement gives 90.0% +/- 0.3% (effective sample size 10,410), against the reference 90.1%.
+
+**Predicted updated fraction** for three possible new central values (sampling standard error in brackets):
+
+| New central value (heliocentric, uas/yr) | Sideways speed vs MW | New precision 2 uas/yr | Today's precision (8.1, 6.6) |
+|---|---|---|---|
+| Today's value, Wu et al. 2025 (45.9, -20.5) | 26 km/s | 95.4% (0.8): **raise**, borderline | 90.0% (0.3): unchanged |
+| The 2025 input, Salomon et al. 2021 (48.9, -36.9) | 67 km/s | 69.3% (1.7): **lower** | 55.9% (0.5): **lower** |
+| Zero sideways velocity (38.8, -21.4) | 0 km/s | 91.0% (1.0): unchanged | 88.7% (0.3): unchanged |
+
+Sideways speeds are in the model's Galactocentric frame at central distance and radial velocity.
+
+**Stated in advance:**
+
+1. **Precision alone moves the number.** If DR4-based measurements confirm today's central value at about 2 uas/yr, the forecast rises to about 95%, at the raise boundary. Today's 90.1% averages over a wide uncertainty range that includes low-probability motions; a sharper measurement at the same centre removes them.
+2. **Most of today's 1 sigma range leaves the forecast unchanged** at 2 uas/yr precision. The raise region is only a small patch around and just below today's central value. Across today's 1 sigma and 2 sigma ranges, the 2 uas/yr forecast spans 86.9-95.8% and 69.9-95.8%.
+3. **A return to "coin flip or worse" needs a large shift.** At 2 uas/yr the 50% contour lies entirely outside today's 2 sigma range, at sideways speeds of roughly 80-110 km/s. A DR4 value back at the 2025 input lowers the forecast to about 69% at 2 uas/yr, or 56% at today's precision, not to the 2025 result of 52%: the 2026 configuration also changed M31's concentration and M33's motion, and those changes stay frozen.
+4. **Head-on is not the maximum.** Zero sideways velocity gives about 91%, below the 95% at today's central value: the LMC's pull on the Milky Way makes a slightly oblique M31 orbit more likely to merge than a head-on one (Wu et al. 2026, Sec. III.2).
+5. **If precision does not improve,** no central value in the scanned range raises the forecast, and only values within about 1 sigma of today's leave it unchanged.
+
+**Comparison with Wu et al. (2026).** They report 73.3-100% and 64.7-100% across the 1 sigma and 2 sigma regions, from fixed-proper-motion grid cells. Our ranges average over a 2 uas/yr prior instead, which smooths the extremes; the ranges are related but not the same estimator. Near category boundaries the map's sampling error (0.7-1.7 points at 2 uas/yr) matters, which is why borderline results are reported as such.
 
 ## 5. Method for the Map
 

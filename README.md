@@ -21,6 +21,8 @@ A port of the public Sawala et al. (2025) semi-analytic model ([TillSawala/MW-M3
 
 The port integrates all samples at once (vectorized) and is tested against the upstream notebook's own functions. See [docs/reproduction-log.md](docs/reproduction-log.md) for differences, findings, and validation.
 
+**Pre-DR4 forecast:** [docs/pre-dr4-forecast.md](docs/pre-dr4-forecast.md) states, before Gaia DR4, what the frozen model expects and which new Andromeda proper motions would raise, lower, or leave it unchanged. The frozen code is git tag `pre-dr4-forecast-v1`.
+
 **Time units:** upstream uses G = 43007 (kpc, km/s, 1e10 Msun), so one code time unit is 0.978 Gyr, although it is labelled "Gyr" upstream. Results are reported in both code units (for comparison with the papers) and physical Gyr.
 
 ## Repository Structure
@@ -32,18 +34,23 @@ andromeda-research/
 ├── pyproject.toml
 ├── requirements.txt            # Pinned versions used for published runs
 ├── andromeda/
-│   ├── configs.py              # Sawala (2025) and Wu (2026) fiducial priors; pinned sky coordinates
+│   ├── configs.py              # Sawala (2025) and Wu (2026) fiducial priors; M31 proper-motion scan; pinned sky coordinates
 │   ├── initial_conditions.py   # Matched-seed Monte Carlo sampling and Galactocentric transform
 │   ├── integrator.py           # Vectorized orbit integrator, dynamical friction, merger logic
-│   └── ensemble.py             # Parallel runs, summaries, Wilson intervals, metadata
+│   ├── ensemble.py             # Parallel runs, summaries, Wilson intervals, metadata
+│   └── forecast.py             # Pre-DR4 threshold, update predictions by reweighting
 ├── scripts/
-│   └── run_ensemble.py         # Command-line entry point
+│   ├── run_ensemble.py         # Command-line entry point
+│   ├── plot_tracks.py          # Separation-track figure
+│   └── forecast_map.py         # Pre-DR4 proper-motion map and forecast.json
 ├── tests/
-│   └── test_upstream_parity.py # Executes upstream notebook cells and compares results
+│   ├── test_upstream_parity.py # Executes upstream notebook cells and compares results
+│   └── test_forecast.py        # Scan sampling, reweighting, threshold
 ├── runs/                       # summary.json and logs per run (arrays are regenerated, not committed)
 ├── docs/
 │   ├── getting-started.md
-│   └── reproduction-log.md
+│   ├── reproduction-log.md
+│   └── pre-dr4-forecast.md     # Stage 2: dated forecast, threshold, decision rule
 └── upstream/MW-M31/            # Submodule: Sawala et al. public notebook
 ```
 

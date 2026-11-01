@@ -1,0 +1,109 @@
+{
+  "scan_run": "wu2026_m31pm_scan_n100000",
+  "scan_samples": 100000,
+  "scan_box_uas_per_yr": [
+    [
+      5.399999999999999,
+      86.4
+    ],
+    [
+      -53.5,
+      12.5
+    ]
+  ],
+  "reference_run": "wu2026_fiducial_n10000",
+  "reference_fraction": 0.901,
+  "material_change": 0.05,
+  "clip_sigma": 2.0,
+  "zero_transverse_velocity_pm": [
+    38.809578942857094,
+    -21.42030291658243
+  ],
+  "horizon_code_units": 10.0,
+  "upstream_commit": "e04820ec366c57a9f03ac3af14bcf62b5467eb2e",
+  "scenarios": {
+    "target": {
+      "sigma_uas_per_yr": [
+        2.0,
+        2.0
+      ],
+      "predictions": {
+        "Wu et al. 2025 (2026 forecast input)": {
+          "fraction": 0.9536196421528128,
+          "n_eff": 727.9418691780074,
+          "se": 0.007794823606382045,
+          "category": "raise",
+          "transverse_speed_km_s": 25.79305151913485
+        },
+        "Salomon et al. 2021 (2025 forecast input)": {
+          "fraction": 0.693089537298611,
+          "n_eff": 762.063822191671,
+          "se": 0.016707245185522444,
+          "category": "lower",
+          "transverse_speed_km_s": 66.6615244177339
+        },
+        "Zero transverse velocity": {
+          "fraction": 0.9095258875299699,
+          "n_eff": 807.9942344583321,
+          "se": 0.010091728711897391,
+          "category": "unchanged",
+          "transverse_speed_km_s": 6.266876696921383e-14
+        }
+      },
+      "min_n_eff_in_domain": 701.0911377509941,
+      "range_within_current_1sigma": [
+        0.8691762274852243,
+        0.9577827136098168
+      ],
+      "range_within_current_2sigma": [
+        0.6986558062020297,
+        0.9577827136098168
+      ]
+    },
+    "current": {
+      "sigma_uas_per_yr": [
+        8.1,
+        6.6
+      ],
+      "predictions": {
+        "Wu et al. 2025 (2026 forecast input)": {
+          "fraction": 0.8998627092187185,
+          "n_eff": 10409.855649783138,
+          "se": 0.00294214242452619,
+          "category": "unchanged",
+          "transverse_speed_km_s": 25.79305151913485
+        },
+        "Salomon et al. 2021 (2025 forecast input)": {
+          "fraction": 0.5587857568041634,
+          "n_eff": 10575.581382956367,
+          "se": 0.0048283117103015685,
+          "category": "lower",
+          "transverse_speed_km_s": 66.6615244177339
+        },
+        "Zero transverse velocity": {
+          "fraction": 0.8869662687186928,
+          "n_eff": 10437.684044442836,
+          "se": 0.0030992421568778465,
+          "category": "unchanged",
+          "transverse_speed_km_s": 6.266876696921383e-14
+        }
+      },
+      "min_n_eff_in_domain": 10232.159756427076,
+      "range_within_current_1sigma": [
+        0.8249024055025341,
+        0.901893031961211
+      ],
+      "range_within_current_2sigma": [
+        0.584237271302973,
+        0.901893031961211
+      ]
+    }
+  },
+  "validation_reweighted_fiducial": {
+    "fraction": 0.8998627092187185,
+    "n_eff": 10409.855649783138,
+    "se": 0.00294214242452619,
+    "reference": 0.901,
+    "within_two_combined_se": true
+  }
+}
